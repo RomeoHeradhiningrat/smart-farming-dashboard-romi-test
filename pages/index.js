@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const BACKEND_URL = "https://your-railway-url.up.railway.app"; // GANTI link backend di sini
+const BACKEND_URL = "web-production-ecd56.up.railway.app"; // GANTI link backend di sini
 
 export default function Home() {
   const [sensor, setSensor] = useState(null);
