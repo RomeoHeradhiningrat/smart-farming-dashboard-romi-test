@@ -1,9 +1,8 @@
+# 🌱 Smart Farming Dashboard
 
----
+Frontend Dashboard untuk menampilkan data sensor dan mengontrol device dari Smart Farming Backend.
 
-#📌 Jadi nanti flow-nya:  
-1. Deploy **backend** ke Railway (dapat URL).  
-2. Deploy **frontend** ke Vercel.  
-3. Di file `pages/index.js`, **ganti `BACKEND_URL`** dengan link backend kamu → deploy ulang → jalan 🎉.  
-
----
+## 🚀 Cara Jalankan Lokal
+```bash
+npm install
+npm run dev
