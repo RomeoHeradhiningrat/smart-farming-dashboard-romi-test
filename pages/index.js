@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const BACKEND_URL = "https://web-production-ecd56.up.railway.app"; // GANTI link backend di sini
+const BACKEND_URL = "https://web-production-ecd56.up.railway.app"; // GANTI sesuai URL backend Railway kamu
 
 export default function Home() {
   const [sensor, setSensor] = useState(null);
@@ -43,18 +43,21 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-6">
+    <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
       <h1 className="text-3xl font-bold mb-6">🌱 Smart Farming Dashboard</h1>
 
       {/* Sensor Card */}
       <div className="bg-white shadow-lg rounded-2xl p-6 w-80 mb-4">
         <h2 className="text-xl font-semibold mb-2">Sensor Data</h2>
-        {sensor ? (
+        {sensor && sensor.temperature ? (
           <div>
             <p>🌡️ Temperature: <b>{sensor.temperature} °C</b></p>
             <p>💧 Humidity: <b>{sensor.humidity} %</b></p>
             <p className="text-xs text-gray-500 mt-2">
-              Last update: {new Date(sensor.timestamp).toLocaleTimeString()}
+              Last update:{" "}
+              {sensor.timestamp
+                ? new Date(sensor.timestamp).toLocaleTimeString()
+                : "N/A"}
             </p>
           </div>
         ) : (
@@ -68,8 +71,8 @@ export default function Home() {
         <p>LED Status: <b>{device.led}</b></p>
         <button
           onClick={toggleLed}
-          className={`mt-4 px-4 py-2 rounded-lg text-white ${
-            device.led === "ON" ? "bg-red-500" : "bg-green-500"
+          className={`mt-4 px-4 py-2 rounded-lg text-white transition ${
+            device.led === "ON" ? "bg-red-500 hover:bg-red-600" : "bg-green-500 hover:bg-green-600"
           }`}
         >
           {device.led === "ON" ? "Turn OFF" : "Turn ON"}
